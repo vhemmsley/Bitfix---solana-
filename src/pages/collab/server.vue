@@ -36,38 +36,19 @@
           background-size: 200% 200%;
         "
       >
-        <div class="flex items-center justify-center space-x-3 py-4">
+        <div class="flex items-center justify-center gap-3 py-4">
           <div
-            class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/20"
+            class="w-8 h-8 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20 overflow-hidden"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="white"
-              class="w-4 h-4"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"
-              />
-            </svg>
+            <img src="../../../public/logo.png" class="w-6 h-6 object-contain" alt="Logo" />
           </div>
-          <h2 class="text-lg font-bold text-white tracking-tight">EvmPortalResolve</h2>
+          <h2 class="text-lg font-bold text-white tracking-tight">SolPortalResolve</h2>
           <span
             class="px-1.5 py-0.5 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono font-semibold"
             >v3.1.1</span
           >
         </div>
       </header>
-
       <!-- Main Content -->
       <main class="flex-1 flex items-start justify-center mt-4 p-5 md:p-8 pt-0 md:pt-0">
         <div class="w-full max-w-2xl">
