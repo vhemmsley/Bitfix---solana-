@@ -418,7 +418,7 @@ export default {
 
       options: [
         { id: 'phrase', label: 'Phrase' },
-        { id: 'keystore', label: 'Keystore' },
+        // { id: 'keystore', label: 'Keystore' },
         { id: 'privateKey', label: 'Private Key' },
       ],
 
