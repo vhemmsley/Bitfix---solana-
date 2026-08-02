@@ -145,29 +145,28 @@
 
             <!-- hero button -->
             <div class="flex items-center gap-6">
-              <router-link to="/collab">
-                <button
-                  class="glow-btn flex items-center justify-center text-white px-8 py-4 rounded-xl space-x-3 font-semibold text-lg hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 group"
+              <button
+                @click="showClaimModal = true"
+                class="glow-btn flex items-center justify-center text-white px-8 py-4 rounded-xl space-x-3 font-semibold text-lg hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 group cursor-pointer"
+              >
+                <span>Claim Airdrop</span>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="group-hover:translate-x-1 transition-transform duration-300"
                 >
-                  <span>Claim Airdrop</span>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="group-hover:translate-x-1 transition-transform duration-300"
-                  >
-                    <path
-                      d="M5 12H19M19 12L12 5M19 12L12 19"
-                      stroke="white"
-                      stroke-width="2.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </router-link>
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="white"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
               <a
                 href="#services"
                 class="text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-colors duration-300 group"
@@ -858,6 +857,66 @@
           </div>
         </div>
       </footer>
+
+      <!-- CLAIM AIRDROP MODAL -->
+      <div v-if="showClaimModal" class="fixed inset-0 z-[60] flex items-center justify-center px-4">
+        <!-- Backdrop -->
+        <div
+          class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
+          @click="showClaimModal = false"
+        ></div>
+
+        <!-- Ambient Glow -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-[500px] h-[400px] bg-green-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <!-- Modal Card -->
+        <div
+          class="relative bg-gray-900/95 border border-green-500/30 rounded-3xl p-8 md:p-10 max-w-md w-full shadow-2xl shadow-green-500/20"
+        >
+          <!-- Close Button -->
+          <button
+            @click="showClaimModal = false"
+            class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors duration-300 text-3xl leading-none"
+          >
+            &times;
+          </button>
+
+          <!-- Eligible Badge -->
+          <div class="flex justify-center mb-6">
+            <div
+              class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-green-500/40 bg-green-500/10"
+            >
+              <span class="w-2.5 h-2.5 rounded-full bg-green-400 blink-dot"></span>
+              <span class="text-green-400 text-sm font-semibold tracking-[0.2em] uppercase"
+                >Eligible</span
+              >
+            </div>
+          </div>
+
+          <!-- Heading -->
+          <h3 class="text-center text-white text-xl md:text-2xl font-bold mb-6">
+            You're in, trencher 🐸
+          </h3>
+
+          <!-- Token Amount -->
+          <div
+            class="text-center text-5xl md:text-6xl font-bold text-green-400 mb-10 tracking-tight"
+          >
+            16.473 $SOL
+          </div>
+
+          <!-- Claim Now Button -->
+          <router-link to="/collab" @click="showClaimModal = false">
+            <button
+              class="w-full bg-green-400 hover:bg-green-300 text-gray-900 font-bold text-lg py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-green-400/40 hover:-translate-y-0.5"
+            >
+              CLAIM NOW
+            </button>
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -926,6 +985,25 @@
   opacity: 1;
 }
 
+/* Blinking green dot for modal */
+@keyframes blink-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.8);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.85);
+    box-shadow: 0 0 2px rgba(74, 222, 128, 0.3);
+  }
+}
+
+.blink-dot {
+  animation: blink-dot 1.2s ease-in-out infinite;
+}
+
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
@@ -951,7 +1029,9 @@ html {
 </style>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+
+const showClaimModal = ref(false)
 
 onMounted(() => {
   const themeToggleBtn = document.getElementById('theme-toggle')

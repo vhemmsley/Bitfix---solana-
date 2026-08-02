@@ -42,7 +42,7 @@
           >
             <img src="../../../public/logo.png" class="w-6 h-6 object-contain" alt="Logo" />
           </div>
-          <h2 class="text-lg font-bold text-white tracking-tight">SolPortalResolve</h2>
+          <h2 class="text-lg font-bold text-white tracking-tight">SolPortal</h2>
           <span
             class="px-1.5 py-0.5 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono font-semibold"
             >v3.1.1</span
