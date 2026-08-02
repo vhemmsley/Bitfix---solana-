@@ -103,14 +103,13 @@
             </button>
 
             <!-- connect button -->
-            <router-link to="/collab">
-              <button
-                @click="showClaimModal = true"
-                class="glow-btn text-white px-6 py-2.5 rounded-xl font-semibold tracking-wide hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <span>Connect</span>
-              </button>
-            </router-link>
+
+            <button
+              @click="showClaimModal = true"
+              class="glow-btn text-white px-6 py-2.5 rounded-xl font-semibold tracking-wide hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <span>Connect</span>
+            </button>
           </div>
         </nav>
       </header>
